@@ -15,7 +15,7 @@ var (
 	bindAddr string
 	mainDB   *gorm.DB
 
-	osAppID = os.Getenv("OS_APP_ID")
+	osAppID = os.Getenv("OS_APP_ID") // Application -> Settings -> Keys & IDs ->ONESIGNAL APP ID
 )
 
 func main() {
@@ -24,8 +24,8 @@ func main() {
 	flag.Parse()
 
 	pushNotif := onesignal.NewClient(nil)
-	pushNotif.AppKey = os.Getenv("OS_APP_SECRET")
-	pushNotif.UserKey = os.Getenv("OS_USER_KEY")
+	pushNotif.AppKey = os.Getenv("OS_APP_SECRET") // Application -> Settings -> Keys & IDs -> REST API KEY
+	pushNotif.UserKey = os.Getenv("OS_USER_KEY")  // User Auth Key from Profile Picture -> Account & API Keys
 
 	r := gin.Default()
 
