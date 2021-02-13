@@ -1,5 +1,6 @@
 <img align="right" width="100" height="100" src="https://github.com/codenoid/pc-auth-notifier/blob/master/assets/icon.png?raw=true">
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/codenoid/pc-auth-notifier)](https://goreportcard.com/report/github.com/codenoid/pc-auth-notifier)
 # PC Auth Notifier
 
 > Someone tried to unlock your device
@@ -15,6 +16,15 @@ I made this project because I want to learn flutter by myself, unfortunately I c
 3. anything else about onesignal are written on .go file as comment
 4. Tested on Linux/Ubuntu 20.04
 5. No special build args/command
+
+## Project Structure
+| Folder          	| Description                                                                                        	|
+|-----------------	|----------------------------------------------------------------------------------------------------	|
+| assets          	| Contain project assets                                                                             	|
+| gateway-server  	| HTTP Server for receiving and providing authentication log and generating push notification        	|
+| pc-client       	| Act as auth/log reporter, if there is new auth log, pc-client will send log data to gateway-server 	|
+| mobile_flutter  	| the mobile app                                                                                     	|
+| shared-packages 	| Go shared packages ?                                                                               	|
 
 ## Tech Stack :rocket:
 |<img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/go/go.png" width=60> | <img src="https://cdn.worldvectorlogo.com/logos/flutter-logo.svg" width=60> | <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sqlite_logo_icon_169724.png" width=60> | <img src="https://lh3.googleusercontent.com/gTcqItI2CmrA87EpCXGKOtp1jHF4xqYcimQ0je_sgDfLgttr8GSquvJgQmOqKlBZnOAk2gGeRpM=w240-h240" width=60> | <img src="https://onesignal-blog.s3.amazonaws.com/2018/Aug/onesignal-1534463753064.png" width=60> | <img src="https://seeklogo.com/images/U/ubuntu-logo-8FDEC6A07B-seeklogo.com.png" width=60> |
