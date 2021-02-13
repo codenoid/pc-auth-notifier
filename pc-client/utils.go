@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"os"
 	"os/exec"
 	"runtime"
@@ -78,4 +80,10 @@ func openFile(target string) error {
 	}
 	args = append(args, target)
 	return exec.Command(cmd, args...).Start()
+}
+
+// GetMD5Hash get md5 hash from string input
+func GetMD5Hash(text string) string {
+	hash := md5.Sum([]byte(text))
+	return hex.EncodeToString(hash[:])
 }

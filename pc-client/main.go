@@ -18,6 +18,9 @@ var dbPath = userHomeDir() + "/.auth-notifier/"
 // machineID hold unique .ProtectedID
 var machineID string
 
+// serverAddr
+var serverAddr = os.Getenv("PAN_HOST")
+
 // startTime hold app start time
 var startTime = time.Now()
 

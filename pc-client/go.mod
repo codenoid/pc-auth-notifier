@@ -3,6 +3,7 @@ module github.com/codenoid/pc-auth-notifier/pc-client
 go 1.15
 
 require (
+	github.com/codenoid/pc-auth-notifier/shared-packages/model v0.0.0-20210213181425-b874af3368de
 	github.com/denisbrodbeck/machineid v1.0.1
 	github.com/getlantern/systray v1.1.0
 	github.com/hpcloud/tail v1.0.0

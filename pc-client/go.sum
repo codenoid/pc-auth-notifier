@@ -1,3 +1,8 @@
+github.com/codenoid/pc-auth-notifier v0.0.0-20210213180530-2e672588a274 h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+github.com/codenoid/pc-auth-notifier/shared-packages/model v0.0.0-20210213180530-2e672588a274 h1:wmokBr4EocXKg3ts5n/5pJoB+/ydvrUTBrgws/G7guY=
+github.com/codenoid/pc-auth-notifier/shared-packages/model v0.0.0-20210213180530-2e672588a274/go.mod h1:Vx5HPB1CRKzopetoJerK7DYgTfyzEmMKaKtUfhiLwZY=
+github.com/codenoid/pc-auth-notifier/shared-packages/model v0.0.0-20210213181425-b874af3368de h1:sz8BNfTUvzkei6smg3z86SqWHxCsNUf/m6oX9XtVkgU=
+github.com/codenoid/pc-auth-notifier/shared-packages/model v0.0.0-20210213181425-b874af3368de/go.mod h1:Vx5HPB1CRKzopetoJerK7DYgTfyzEmMKaKtUfhiLwZY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denisbrodbeck/machineid v1.0.1 h1:geKr9qtkB876mXguW2X6TU4ZynleN6ezuMSRhl4D7AQ=
 github.com/denisbrodbeck/machineid v1.0.1/go.mod h1:dJUwb7PTidGDeYyUBmXZ2GphQBbjJCrnectwCyxcUSI=
