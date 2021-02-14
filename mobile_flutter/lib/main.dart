@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     bool _requireConsent = true;
 
-    OneSignal.shared.init("5831c0d1-b072-43fe-9bd2-3122c5fee54c", iOSSettings: {
+    OneSignal.shared.init("<one-signal-app-id>", iOSSettings: {
       OSiOSSettings.autoPrompt: false,
       OSiOSSettings.inAppLaunchUrl: false
     });
