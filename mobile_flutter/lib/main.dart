@@ -27,8 +27,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    bool _requireConsent = true;
-
     OneSignal.shared.init("<one-signal-app-id>", iOSSettings: {
       OSiOSSettings.autoPrompt: false,
       OSiOSSettings.inAppLaunchUrl: false
