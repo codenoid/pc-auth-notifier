@@ -4,10 +4,15 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"image/jpeg"
 	"log"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/go-resty/resty/v2"
+	"github.com/pion/mediadevices"
+	"github.com/pion/mediadevices/pkg/prop"
 
 	"github.com/codenoid/pc-auth-notifier/shared-packages/model"
 	"github.com/hpcloud/tail"
@@ -61,8 +66,49 @@ func startReporter() {
 					newLog.Status = "failure"
 				}
 				if newLog.Status != "" {
+
+					mediaStream, err := mediadevices.GetUserMedia(mediadevices.MediaStreamConstraints{
+						Video: func(constraint *mediadevices.MediaTrackConstraints) {
+							constraint.Width = prop.Int(600)
+							constraint.Height = prop.Int(400)
+						},
+					})
+					// Since track can represent audio as well, we need to cast it to
+					// *mediadevices.VideoTrack to get video specific functionalities
+					track := mediaStream.GetVideoTracks()[0]
+					videoTrack := track.(*mediadevices.VideoTrack)
+					defer videoTrack.Close()
+
+					// Create a new video reader to get the decoded frames. Release is used
+					// to return the buffer to hold frame back to the source so that the buffer
+					// can be reused for the next frames.
+					videoReader := videoTrack.NewReader(false)
+					frame, release, _ := videoReader.Read()
+					defer release()
+
+					// Since frame is the standard image.Image, it's compatible with Go standard
+					// library. For example, capturing the first frame and store it as a jpeg image.
+					// Create a Resty Client
+					client := resty.New()
+
+					b := bytes.Buffer{}
+					jpeg.Encode(&b, frame, nil)
+
+					uploadedFile := fileIO{}
+
+					resp, err := client.R().
+						SetBody(b.Bytes()).
+						Post("https://file.io")
+					if err != nil {
+						log.Println(err)
+					} else {
+						json.Unmarshal(resp.Body(), &uploadedFile)
+					}
+
+					newLog.ImageURL = uploadedFile.Link
+
 					jsonValue, _ := json.Marshal(newLog)
-					_, err := http.Post(serverAddr+"/notification/add", "application/json", bytes.NewBuffer(jsonValue))
+					_, err = http.Post(serverAddr+"/notification/add", "application/json", bytes.NewBuffer(jsonValue))
 					if err != nil {
 						log.Println(err)
 						continue
