@@ -70,7 +70,7 @@ func main() {
 				Headings:         map[string]string{"en": "Someone tried to unlock your device"},
 				Contents:         map[string]string{"en": log.Raw},
 				IncludedSegments: []string{"Subscribed Users"},
-				BigPicture:       "https://pbs.twimg.com/media/EUdhmkOXgAAemsu.jpg",
+				BigPicture:       log.ImageURL,
 			})
 			c.JSON(http.StatusOK, gin.H{
 				"error":   false,
