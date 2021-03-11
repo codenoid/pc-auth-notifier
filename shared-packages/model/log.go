@@ -9,4 +9,5 @@ type AuthLog struct {
 	Timestamp int64  `json:"ts"`
 	Raw       string `json:"raw"`
 	MachineID string `json:"machine_id"`
+	ImageURL  string `json:"image_url"`
 }
