@@ -51,8 +51,8 @@ func onReady() {
 	hashStr = strings.Join(splitSubN(hashStr, 2), " ")
 	showQR := systray.AddMenuItem(hashStr+" [SHOW QR]", "Your [0:12] unique machine ID")
 
-	notif := systray.AddMenuItemCheckbox("Ignore root access", "Enable/Disable", getConfig("notif_on_success"))
-	ignoreRoot := systray.AddMenuItemCheckbox("Notif on success", "Enable/Disable", getConfig("ignore_root_access"))
+	ignoreRoot := systray.AddMenuItemCheckbox("Ignore root access", "Enable/Disable", getConfig("ignore_root_access"))
+	notif := systray.AddMenuItemCheckbox("Notif on success", "Enable/Disable", getConfig("notif_on_success"))
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "Quit the whole app")
 
